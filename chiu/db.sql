@@ -41,7 +41,7 @@ CREATE TABLE public."SubjectDetail"
 
 CREATE TABLE public."Subject"
 (
-	subject_id smallint NOT NULL,
+	subject_id SERIAL,
     subject_code character varying(16) COLLATE pg_catalog."default" NOT NULL,
     subject_description character varying(64) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "Subject_pkey" PRIMARY KEY (subject_id),
@@ -71,7 +71,7 @@ CREATE TABLE public."CourseDetail"
 
 CREATE TABLE public."Course"
 (
-    course_id smallint NOT NULL,
+    course_id SERIAL,
     course_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
     major character varying(64) COLLATE pg_catalog."default",
 	college_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE public."Course"
 
 CREATE TABLE public."LecSubjectsOffered"
 (
-    id smallint NOT NULL,
+    id SERIAL,
 	subject_id smallint NOT NULL,
     section character varying(16) COLLATE pg_catalog."default" NOT NULL,
     maximum_slot smallint NOT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE public."LecSubjectsOffered"
 
 CREATE TABLE public."LabSubjectsOffered"
 (
-    lab_subject_id smallint NOT NULL,
+    lab_subject_id SERIAL,
 	subject_id smallint NOT NULL,
 	id smallint NOT NULL,
     section character varying(16) COLLATE pg_catalog."default" NOT NULL,
@@ -145,7 +145,7 @@ CREATE TABLE public."SubjectsTakenByStudents"
 
 CREATE TABLE public."AdvancedCredit"
 (
-    id smallint NOT NULL,
+    id SERIAL,
 	school_name character varying(64) COLLATE pg_catalog."default" NOT NULL,
     subject_code character varying(64) COLLATE pg_catalog."default" NOT NULL,
 	subject_description character varying(128) COLLATE pg_catalog."default" NOT NULL,
@@ -170,7 +170,7 @@ CREATE TABLE public."AdvancedCredit"
 
 CREATE TABLE public."Schedule"
 (
-    id smallint NOT NULL,
+    id SERIAL,
 	lec_subject smallint NOT NULL,
 	lab_subject smallint NOT NULL,
 	class_days character varying(16) COLLATE pg_catalog."default" NOT NULL,
