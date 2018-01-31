@@ -35,8 +35,8 @@
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0087aea8-8522-4349-8e7f-a16c843ce47d/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3963">
-              <caret line="143" column="21" lean-forward="true" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+            <state relative-caret-position="323">
+              <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -173,12 +173,12 @@
       <updated>1517228315330</updated>
       <workItem from="1517256336312" duration="7086000" />
       <workItem from="1517265359592" duration="11932000" />
-      <workItem from="1517303124418" duration="24150000" />
+      <workItem from="1517303124418" duration="27938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43168000" />
+    <option name="totallyTimeSpent" value="46956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -425,8 +425,8 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0087aea8-8522-4349-8e7f-a16c843ce47d/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3963">
-          <caret line="143" column="21" lean-forward="true" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+        <state relative-caret-position="323">
+          <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
           <folding />
         </state>
       </provider>
