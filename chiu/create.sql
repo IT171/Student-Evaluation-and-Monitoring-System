@@ -171,8 +171,8 @@ CREATE TABLE public."AdvancedCredit"
 CREATE TABLE public."Schedule"
 (
     id SERIAL,
-	lec_subject smallint NOT NULL,
-	lab_subject smallint NOT NULL,
+	lec_subject smallint,
+	lab_subject smallint,
 	class_days character varying(16) COLLATE pg_catalog."default" NOT NULL,
 	time_start time NOT NULL,
 	time_end time NOT NULL,

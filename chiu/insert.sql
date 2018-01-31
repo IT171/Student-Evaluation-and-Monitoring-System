@@ -323,22 +323,5 @@ COMMIT;
 
 
 
-BEGIN;
-INSERT INTO public."LecSubjectsOffered" (subject_id,section,maximum_slot,school_year,semester)
-    VALUES ( ( SELECT subject_id FROM public."Subject" WHERE subject_code = 'Acctg 112' ),
-              'A',40,'2017-18', 1 );
-INSERT INTO public."LecSubjectsOffered" (subject_id,section,maximum_slot,school_year,semester)
-    VALUES ( ( SELECT subject_id FROM public."Subject" WHERE subject_code = 'Eng 2'),
-         'B',40,'2017-18', 1 );
-COMMIT;
 
 
-
-BEGIN;
-INSERT INTO public."SubjectsTakenByStudents" (id_number,lec_subject,lab_subject,grade)
-    VALUES('2011-5368', ( SELECT id FROM public."LecSubjectsOffered" WHERE subject_id =
-                              ( SELECT subject_id FROM public."Subject" WHERE subject_code = 'Acctg 112') ), NULL, 3 );
-INSERT INTO public."SubjectsTakenByStudents" (id_number,lec_subject,lab_subject,grade)
-VALUES('2011-5368', ( SELECT id FROM public."LecSubjectsOffered" WHERE subject_id =
-                              ( SELECT subject_id FROM public."Subject" WHERE subject_code = 'Eng 2') ), NULL, 1.25 );
-COMMIT;
