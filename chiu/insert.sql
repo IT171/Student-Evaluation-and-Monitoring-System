@@ -121,6 +121,62 @@ INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week,
   VALUES('Principles of Management',3,NULL);
 INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
   VALUES('Mgt. Acctg 1 (Cost Accounting)',6,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Macroeconomics',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Human Behavior in Organization',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Production & Operations Management',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Income Taxation',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Advanced Accounting 2',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Mgt. Accounting 2', 3, NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Law on Business Organization',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Technical Report Writing',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Information Systems Management', 2, 3);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Business Policy & Strategy',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Good Governance & Social Responsibility',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Law on Negotiable Instruments',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Law on Sales, Agency',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Business & Transfer Taxes',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('On The Job Training',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('World Culture or Fine Arts',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Acctg Information System',2,3);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Advanced Acctg 3',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Management Acctg 3',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Auditing 1',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Synthesis',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Financial Management 2',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Mgt Consultancy',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Auditing 2',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Auditing in CIS Environment',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Special Topics & Acctg Updates 1',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Special Topics & Acctg Updates 2',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Special Topics & Acctg Updates 3',3,NULL);
 COMMIT;
 
 
@@ -207,16 +263,64 @@ INSERT INTO public."Subject" (subject_code, subject_description)
   VALUES('Mgt 11', 'Principles of Management');
 INSERT INTO public."Subject" (subject_code, subject_description)
   VALUES('Acctg 141', 'Mgt. Acctg 1 (Cost Accounting)');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Econ 61', 'Macroeconomics');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 12', 'Human Behavior in Organization');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 14', 'Production & Operations Management');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Tax 1', 'Income Taxation');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 132', 'Advanced Accounting 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Actg 142', 'Mgt. Accounting 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('BL 2', 'Law on Business Organization');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Eng 8', 'Technical Report Writing');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus IT 3', 'Information Systems Management');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 18', 'Business Policy & Strategy');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 19', 'Business Policy & Strategy');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('BL 3', 'Law on Negotiable Instruments');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('BL 4', 'Law on Sales, Agency');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Tax 2', 'Business & Transfer Taxes');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 197', 'On The Job Training');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Hum Elective', 'World Culture or Fine Arts');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus IT 4', 'Acctg Information System');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 133', 'Advanced Acctg 3');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 143', 'Management Acctg 3');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 151', 'Auditing 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 160', 'Synthesis');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Fin 3N', 'Financial Management 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 144', 'Mgt Consultancy');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 152', 'Auditing 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 153', 'Auditing in CIS Environment');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 161', 'Special Topics & Acctg Updates 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 162', 'Special Topics & Acctg Updates 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 163', 'Special Topics & Acctg Updates 3');
 COMMIT;
 
-
-
-BEGIN;
-INSERT INTO public."SubjectsCourse" (course_id,subject_id,year_level,semester,required_year_level)
-    VALUES( (SELECT course_id FROM public."Course" WHERE course_name = 'Bachelor of Science in Accountancy'),
-            (SELECT subject_id FROM public."Subject" WHERE subject_code = 'Eng 1'),
-             1, 1, 1 );
-COMMIT;
 
 
 BEGIN;
