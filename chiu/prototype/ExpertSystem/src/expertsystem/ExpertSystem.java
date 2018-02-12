@@ -1,6 +1,7 @@
 
 package expertsystem;
 
+import java.time.LocalDate;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -10,7 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -133,7 +138,7 @@ public class ExpertSystem extends Application {
         Button submit = new Button("Submit");
         
         submit.setOnAction(e -> {
-            tree();
+            result();
         
         });
         
@@ -168,31 +173,66 @@ public class ExpertSystem extends Application {
         
     }
     
-    public void tree(){
+    public void result(){
         stage.hide();
         
         BorderPane border = new BorderPane();
-        GridPane grid = new GridPane();
-        border.setTop(grid);
-        grid.setAlignment(Pos.CENTER);
+        VBox vbox = new VBox();
+        
+        border.setCenter(vbox);
+        
+        TableView<Result> table = new TableView();
+        vbox.getChildren().add(table);
+        
+        Button button = new Button("Submit");
+        Button button2 = new Button("Go Back");
+        button2.setOnAction(e -> {
+            stage.hide();
+            stage.setScene(scene2);
+            stage.show();
+        });
+        
+        vbox.getChildren().addAll(button,button2);
+        
+        
+        table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        table.setEditable(true);
+        
+        
+        TableColumn<Result,String> tc1 = new TableColumn<>("ID Number");
+        TableColumn<Result,String> tc2 = new TableColumn<>("First Name");
+        TableColumn<Result,String> tc3 = new TableColumn<>("Middle Name");
+        TableColumn<Result,String> tc4 = new TableColumn<>("Last Name");
+        TableColumn<Result,String> tc5 = new TableColumn<>("Gender");
+        TableColumn<Result,Integer> tc6 = new TableColumn<>("Course");
+        TableColumn<Result,Integer> tc7 = new TableColumn<>("Year Level");
+        TableColumn<Result,Integer> tc8 = new TableColumn<>("Age");
+        TableColumn<Result,LocalDate> tc9 = new TableColumn<>("Birth Date");
+        
+        tc1.setMinWidth(120);
+        tc2.setMinWidth(120);
+        tc3.setMinWidth(120);
+        tc4.setMinWidth(120);
+        tc5.setMinWidth(120);
+        tc6.setMinWidth(120);
+        tc7.setMinWidth(120);
+        tc8.setMinWidth(120);
+        
+        tc1.setCellValueFactory(new PropertyValueFactory<>("idNo"));
+        tc2.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        tc3.setCellValueFactory(new PropertyValueFactory<>("middleName"));
+        tc4.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        tc5.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        tc6.setCellValueFactory(new PropertyValueFactory<>("course"));
+        tc7.setCellValueFactory(new PropertyValueFactory<>("yearLevel"));
+        tc8.setCellValueFactory(new PropertyValueFactory<>("age"));
+        tc9.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        
+        
+        
+        
         scene3 = new Scene(border);
         
-        
-        Label label1 = new Label("Bachelor of Science in Information Technology");
-        Label label2 = new Label("Multimedia Track (May 2011 Revision)");
-        
-        Subject subject = new Subject("Eng 1");
-        Subject subject2 = new Subject("Hist 1");
-        Subject subject3 = new Subject("Fil 1");
-        
-        
-        grid.addRow(0, label1);
-        grid.addRow(1, label2);
-       
-        
-        add(grid,0,2,subject);
-        add(grid,1,2,subject2);
-        add(grid,2,2,subject3);
         
         
         
@@ -206,12 +246,7 @@ public class ExpertSystem extends Application {
     
     }
     
-    public void add(GridPane grid, int column, int row, Subject node){
-        grid.addRow(row, node);
-        grid.add(node.getText(), column, row);
-    
-    
-    }
+   
 
     
     public static void main(String[] args) {
