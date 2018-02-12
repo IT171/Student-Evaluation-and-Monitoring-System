@@ -183,16 +183,31 @@ public class ExpertSystem extends Application {
         
         TableView<Result> table = new TableView();
         vbox.getChildren().add(table);
+        HBox hbox = new HBox();
+        Label label1 = new Label("Total Units:  ");
+        Label label2 = new Label("Difficulty Score:  ");
+        hbox.getChildren().addAll(label1,label2);
+        hbox.setSpacing(40);
+        
         
         Button button = new Button("Submit");
         Button button2 = new Button("Go Back");
+        Button button3 = new Button("Next Best Advice");
+        Button button4 = new Button("Add");
+        Button button5 = new Button("Delete");
+        HBox hbox2 = new HBox();
+        hbox2.getChildren().addAll(button,button4,button5,button2,button3);
+        hbox2.setSpacing(15);
+        
         button2.setOnAction(e -> {
             stage.hide();
             stage.setScene(scene2);
             stage.show();
         });
+        vbox.setPadding(new Insets(40));
+        hbox.setPadding(new Insets(20));
         
-        vbox.getChildren().addAll(button,button2);
+        vbox.getChildren().addAll(hbox,hbox2);
         
         
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
