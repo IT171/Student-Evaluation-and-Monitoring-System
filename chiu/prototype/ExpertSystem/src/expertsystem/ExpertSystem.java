@@ -143,25 +143,6 @@ public class ExpertSystem extends Application {
         });
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         vbox.getChildren().addAll(label1,box1,label2,box2,label3,box3,label4,box4,label5,hbox,label10,box9,label11,box10,submit);
         
         bp.setTop(vbox);
