@@ -2,6 +2,8 @@ BEGIN;
 INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
 VALUES('Algebra & Trigonometry',6,NULL);
 INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+VALUES('Philippine Govt & Const, Agr Reform, Taxn, Fam. Plng, & Pop. Ed.',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
 VALUES('Fundamentals of Computing',2,3);
 INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
 VALUES('Analytic Geometry & Calculus I',6,NULL);
@@ -138,6 +140,8 @@ COMMIT;
 BEGIN;
 INSERT INTO public."Subject" (subject_code, subject_description)
   VALUES('Math 17', 'Algebra & Trigonometry');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Pol Sci 2', 'Philippine Govt & Const, Agr Reform, Taxn, Fam. Plng, & Pop. Ed.');
 INSERT INTO public."Subject" (subject_code, subject_description)
   VALUES('CSc 100', 'Fundamentals of Computing');
 INSERT INTO public."Subject" (subject_code, subject_description)

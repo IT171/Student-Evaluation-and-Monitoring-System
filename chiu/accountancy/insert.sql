@@ -44,6 +44,10 @@ BEGIN;
 INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
   VALUES('Study & Thinking Skills',3,NULL);
 INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Civic Welfare Training Services 1 or Military Science 1',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
+  VALUES('Civic Welfare Training Services 2 or Military Science 2',3,NULL);
+INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
   VALUES('Intro to College Math',3,NULL);
 INSERT INTO public."SubjectDetail" (subject_description, lecture_hours_per_week, lab_hours_per_week)
   VALUES('Introduction to Sociology',3,NULL);
@@ -183,6 +187,10 @@ COMMIT;
 BEGIN;
 INSERT INTO public."Subject" (subject_code, subject_description)
   VALUES('Eng 1', 'Study & Thinking Skills');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('NSTP 1', 'Civic Welfare Training Services 1 or Military Science 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('NSTP 2', 'Civic Welfare Training Services 2 or Military Science 2');
 INSERT INTO public."Subject" (subject_code, subject_description)
   VALUES('Math 1', 'Intro to College Math');
 INSERT INTO public."Subject" (subject_code, subject_description)
