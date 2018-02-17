@@ -222,10 +222,6 @@ public class InputHelper extends Application {
             buffer.write("\r\n");
             buffer.write("\r\n");
             
-           
-            
-            
-        
             }
             catch (IOException e) {
 
