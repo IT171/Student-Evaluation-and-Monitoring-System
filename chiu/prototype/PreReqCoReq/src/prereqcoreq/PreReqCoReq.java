@@ -1,6 +1,10 @@
 
 package prereqcoreq;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,6 +19,9 @@ import javafx.stage.Stage;
 
 
 public class PreReqCoReq extends Application {
+    File file = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\test4.sql");
+    File file2 = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\test5.sql");
+
     TextField tf1 = new TextField();
     TextField tf2 = new TextField();
     TextField tf3 = new TextField();
@@ -75,10 +82,48 @@ public class PreReqCoReq extends Application {
     }
     
     public void prereq(){
+        String parent = tf1.getText();
+        String child = tf2.getText();
+        
+        
+        try (FileWriter filewriter = new FileWriter(file, true);
+             BufferedWriter buffer = new BufferedWriter(filewriter);){
+            
+            String sql = "INSERT INTO public.\"Prerequisite\" (parent_subject, child_subject)" + "\r\n" +
+                        "VALUES ( ( SELECT subject_id FROM public.\"Subject\" WHERE subject_code = '" + parent + "' )," + "\r\n" +
+                       "( SELECT subject_id FROM public.\"Subject\" WHERE subject_code = '" + child + "') );";
+            buffer.write(sql);
+            buffer.write("\r\n");
+            buffer.write("\r\n");
+            
+        }
+        catch (IOException e) {}
+        
+        
+        
     
     }
     
     public void coreq(){
+        
+        String parent = tf3.getText();
+        String child = tf4.getText();
+        
+        
+        try (FileWriter filewriter = new FileWriter(file2, true);
+             BufferedWriter buffer = new BufferedWriter(filewriter);){
+            
+            String sql = "INSERT INTO public.\"Corequisite\" (subject_sibling_1, subject_sibling_2)" + "\r\n" +
+                        "VALUES ( ( SELECT subject_id FROM public.\"Subject\" WHERE subject_code = '" + parent + "' )," + "\r\n" +
+                       "( SELECT subject_id FROM public.\"Subject\" WHERE subject_code = '" + child + "') );";
+            buffer.write(sql);
+            buffer.write("\r\n");
+            buffer.write("\r\n");
+            
+        }
+        catch (IOException e) {}
+        
+        
     
     }
 
