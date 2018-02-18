@@ -25,6 +25,10 @@ CREATE TABLE public."Student"
 	CONSTRAINT "FORN_KEY" FOREIGN KEY (username)
         REFERENCES public."Account" (username) MATCH SIMPLE
         ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    	CONSTRAINT "FORN_KEY2" FOREIGN KEY (course)
+        REFERENCES public."CourseDetail" (course_detail) MATCH SIMPLE
+        ON UPDATE CASCADE
         ON DELETE CASCADE
 );
 
