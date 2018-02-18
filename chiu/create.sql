@@ -26,8 +26,8 @@ CREATE TABLE public."Student"
         REFERENCES public."Account" (username) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    	CONSTRAINT "FORN_KEY2" FOREIGN KEY (course)
-        REFERENCES public."CourseDetail" (course_detail) MATCH SIMPLE
+    CONSTRAINT "FORN_KEY2" FOREIGN KEY (course)
+        REFERENCES public."Course" (course_id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
@@ -109,11 +109,16 @@ CREATE TABLE public."LecSubjectsOffered"
 CREATE TABLE public."LabSubjectsOffered"
 (
     lab_subject_id SERIAL,
+    subject_id smallint NOT NULL,
     id smallint NOT NULL,
     section character varying(16) COLLATE pg_catalog."default" NOT NULL,
     maximum_slot smallint NOT NULL,
     slot_remaining smallint,
     CONSTRAINT "LabSubjectsOffered_pkey" PRIMARY KEY (lab_subject_id),
+    CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_id)
+        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,	
     CONSTRAINT "FORN_KEY2" FOREIGN KEY (id)
         REFERENCES public."LecSubjectsOffered" (id) MATCH SIMPLE
         ON UPDATE CASCADE
