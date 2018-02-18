@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javafx.application.Application;
@@ -23,9 +22,9 @@ import javafx.stage.Stage;
 
 
 public class StudentEditor extends Application {
-    File student = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\01Student.sql");
-    File account = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\02Accounts.sql");
-    File advancedCredit = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\03AdvancedCredit.sql");
+    File student = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\11Student.sql");
+    File account = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\10Accounts.sql");
+    File advancedCredit = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\17AdvancedCredit.sql");
 
     
     
@@ -74,12 +73,6 @@ public class StudentEditor extends Application {
         Label subjectCode = new Label("Subject Code");
         Label grade = new Label("Grade");
         Button button2 = new Button("Submit");
-        
-        
-        
-       
-        
-        
         
         hbox.getChildren().addAll(idNo, tf1, firstName,tf2,middleName,tf3,lastName,tf4,birthDate,tf5,course,tf6,yearLevel,tf7,submit);
         hbox2.getChildren().addAll(idNum,tf8,subjectCode,tf9,grade,tf10,button2);
@@ -130,9 +123,6 @@ public class StudentEditor extends Application {
         String password = "1234";
         String email = username + "@g.msuiit.edu.ph";
         
-       
-        
-        
         try (FileWriter filewriter = new FileWriter(student, true);
              BufferedWriter buffer = new BufferedWriter(filewriter);
              FileWriter filewriter2 = new FileWriter(account,true);
@@ -161,26 +151,18 @@ public class StudentEditor extends Application {
     
     public void inputGrade(){
         String idNum = tf8.getText();
-        String firstName = tf9.getText();
-        String middleName = tf10.getText();
-        
-       
-        
+        String subjectCode = tf9.getText();
+        String grade = tf10.getText();
         
         try (FileWriter filewriter = new FileWriter(advancedCredit, true);
-             BufferedWriter buffer = new BufferedWriter(filewriter);
-             FileWriter filewriter2 = new FileWriter(account,true);
-             BufferedWriter buffer2 = new BufferedWriter(filewriter2)){
+             BufferedWriter buffer = new BufferedWriter(filewriter);){
             
             String sql = "INSERT INTO public.\"AdvancedCredit\" (school_name,subject_code,subject_description,id_num,course,school_year,semester,grade,equivalent_iit_grade,equivalent_subj_in_iit,year_level)" + "\r\n" +
-                          "VALUES('Ateneo','Finance','Fin', '" + idNum + "', 'Bachelor in Whatever', '2005-06', '2', '1.1', '" + firstName + "','" + middleName + "');";  
+                          "VALUES('Ateneo','Finance','Fin', '" + idNum + "', 'Bachelor in Whatever', '2005-06', '2', '1.1', '" + grade + "','" + subjectCode + "', 2);";  
             
             buffer.write(sql);
             buffer.write("\r\n");
             buffer.write("\r\n");
-            
-            
-            
         }
         catch (IOException e) {}
     

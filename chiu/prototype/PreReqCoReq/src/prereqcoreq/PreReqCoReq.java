@@ -19,8 +19,8 @@ import javafx.stage.Stage;
 
 
 public class PreReqCoReq extends Application {
-    File file = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\test4.sql");
-    File file2 = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\test5.sql");
+    File prereqFile = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\12prereq.sql");
+    File coreqFile = new File("C:\\Users\\Victor Chiu\\Desktop\\Student Evaluation and Monitoring System\\chiu\\it\\13coreq.sql");
 
     TextField tf1 = new TextField();
     TextField tf2 = new TextField();
@@ -41,12 +41,6 @@ public class PreReqCoReq extends Application {
         Label sibling = new Label("Sibling");
         Label parent2 = new Label("Parent");
         Label sibling2 = new Label("Sibling");
-        
-        
-        
-       
-        
-        
         
         hbox.getChildren().addAll(parent,tf1,sibling,tf2);
         hbox2.getChildren().addAll(parent2,tf3,sibling2,tf4);
@@ -86,7 +80,7 @@ public class PreReqCoReq extends Application {
         String child = tf2.getText();
         
         
-        try (FileWriter filewriter = new FileWriter(file, true);
+        try (FileWriter filewriter = new FileWriter(prereqFile, true);
              BufferedWriter buffer = new BufferedWriter(filewriter);){
             
             String sql = "INSERT INTO public.\"Prerequisite\" (parent_subject, child_subject)" + "\r\n" +
@@ -98,10 +92,6 @@ public class PreReqCoReq extends Application {
             
         }
         catch (IOException e) {}
-        
-        
-        
-    
     }
     
     public void coreq(){
@@ -110,7 +100,7 @@ public class PreReqCoReq extends Application {
         String child = tf4.getText();
         
         
-        try (FileWriter filewriter = new FileWriter(file2, true);
+        try (FileWriter filewriter = new FileWriter(coreqFile, true);
              BufferedWriter buffer = new BufferedWriter(filewriter);){
             
             String sql = "INSERT INTO public.\"Corequisite\" (subject_sibling_1, subject_sibling_2)" + "\r\n" +
@@ -122,12 +112,8 @@ public class PreReqCoReq extends Application {
             
         }
         catch (IOException e) {}
-        
-        
-    
     }
 
-    
     public static void main(String[] args) {
         launch(args);
     }
