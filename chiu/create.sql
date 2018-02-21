@@ -12,6 +12,7 @@ CREATE TABLE public."College"
     college_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
     college_abbreviation character varying(16) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "College_pkey" PRIMARY KEY (college_name)
+    
 );
 
 CREATE TABLE public."CourseDetail"
@@ -69,27 +70,17 @@ CREATE TABLE public."Student"
         ON DELETE CASCADE
 );
 
-CREATE TABLE public."SubjectDetail"
-(
-    subject_description character varying(128) COLLATE pg_catalog."default" NOT NULL,
-	lecture_hours_per_week smallint,
-	lab_hours_per_week smallint,
-    units smallint,
-	CONSTRAINT "SubjectDetail_pkey" PRIMARY KEY (subject_description)
-	
-);
-
 
 CREATE TABLE public."Subject"
 (
-    subject_id SERIAL,
+    
     subject_code character varying(16) COLLATE pg_catalog."default" NOT NULL,
     subject_description character varying(64) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "Subject_pkey" PRIMARY KEY (subject_id),
-	CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_description)
-        REFERENCES public."SubjectDetail" (subject_description) MATCH SIMPLE
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+    lecture_hours_per_week smallint,
+    lab_hours_per_week smallint,
+    units smallint,
+    CONSTRAINT "Subject_pkey" PRIMARY KEY (subject_code)
+	
 );
 
 
@@ -99,15 +90,15 @@ CREATE TABLE public."Subject"
 CREATE TABLE public."LecSubjectsOffered"
 (
     id SERIAL,
-    subject_id smallint NOT NULL,
+    subject_code character varying(16) COLLATE pg_catalog."default" NOT NULL,
     section character varying(16) COLLATE pg_catalog."default" NOT NULL,
     maximum_slot smallint NOT NULL,
     slot_remaining smallint,
     school_year character varying(16) COLLATE pg_catalog."default" NOT NULL,
     semester character varying(16) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "LecSubjectsOffered_pkey" PRIMARY KEY (id),
-    CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_id)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+    CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_code)
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
@@ -115,14 +106,14 @@ CREATE TABLE public."LecSubjectsOffered"
 CREATE TABLE public."LabSubjectsOffered"
 (
     lab_subject_id SERIAL,
-    subject_id smallint NOT NULL,
+    subject_code character varying(16) COLLATE pg_catalog."default" NOT NULL,
     id smallint NOT NULL,
     section character varying(16) COLLATE pg_catalog."default" NOT NULL,
     maximum_slot smallint NOT NULL,
     slot_remaining smallint,
     CONSTRAINT "LabSubjectsOffered_pkey" PRIMARY KEY (lab_subject_id),
-    CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_id)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+    CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_code)
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,	
     CONSTRAINT "FORN_KEY2" FOREIGN KEY (id)
@@ -160,11 +151,11 @@ CREATE TABLE public."AdvancedCredit"
 	semester character varying(16) COLLATE pg_catalog."default" NOT NULL,
 	grade character varying(16) COLLATE pg_catalog."default",
 	equivalent_iit_grade character varying(16) COLLATE pg_catalog."default",
-	equivalent_subj_in_iit SMALLINT,
+	equivalent_subj_in_iit character varying(16) COLLATE pg_catalog."default" NOT NULL,
     year_level smallint NOT NULL,
     CONSTRAINT "AdvancedCredit_pkey" PRIMARY KEY (id),
 	CONSTRAINT "FORN_KEY" FOREIGN KEY (equivalent_subj_in_iit)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
 	CONSTRAINT "FORN_KEY2" FOREIGN KEY (id_num)
@@ -195,15 +186,15 @@ CREATE TABLE public."Schedule"
 CREATE TABLE public."Prerequisite"
 (
     
-	parent_subject smallint NOT NULL,
-	child_subject smallint NOT NULL,
+	parent_subject character varying(16) COLLATE pg_catalog."default" NOT NULL,
+	child_subject character varying(16) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "Prerequisite_pkey" PRIMARY KEY (parent_subject,child_subject),
 	CONSTRAINT "FORN_KEY" FOREIGN KEY (parent_subject)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
 	CONSTRAINT "FORN_KEY2" FOREIGN KEY (child_subject)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
@@ -211,34 +202,15 @@ CREATE TABLE public."Prerequisite"
 CREATE TABLE public."Corequisite"
 (
     
-	subject_sibling_1 smallint NOT NULL,
-	subject_sibling_2 smallint NOT NULL,
+	subject_sibling_1 character varying(16) COLLATE pg_catalog."default" NOT NULL,
+	subject_sibling_2 character varying(16) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "Corequisite_pkey" PRIMARY KEY (subject_sibling_1, subject_sibling_2),
 	CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_sibling_1)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
 	CONSTRAINT "FORN_KEY2" FOREIGN KEY (subject_sibling_2)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
-);
-
-
-CREATE TABLE public."SubjectsCourse"
-(
-    course_id smallint NOT NULL,
-	subject_id smallint NOT NULL,
-	year_level smallint NOT NULL,
-	required_year_level smallint NOT NULL DEFAULT 1,
-    semester character varying(16) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "SubjectsCourse_pkey" PRIMARY KEY (course_id,subject_id),
-	CONSTRAINT "FORN_KEY" FOREIGN KEY (course_id)
-        REFERENCES public."Course" (course_id) MATCH SIMPLE
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-	CONSTRAINT "FORN_KEY2" FOREIGN KEY (subject_id)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
@@ -251,13 +223,40 @@ CREATE TABLE public."Electives"
 	
 );
 
+
+CREATE TABLE public."SubjectsCourse"
+(
+   id SERIAL,
+    course_id smallint NOT NULL,
+   subject_code character varying(16) COLLATE pg_catalog."default",
+  elective character varying(16) COLLATE pg_catalog."default",
+   year_level smallint,
+	required_year_level smallint NOT NULL DEFAULT 1,
+    semester character varying(16) COLLATE pg_catalog."default",
+    CONSTRAINT "SubjectsCourse_pkey" PRIMARY KEY (id),
+	CONSTRAINT "FORN_KEY" FOREIGN KEY (course_id)
+        REFERENCES public."Course" (course_id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+	CONSTRAINT "FORN_KEY2" FOREIGN KEY (subject_code)
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+	CONSTRAINT "FORN_KEY3" FOREIGN KEY (elective)
+        REFERENCES public."Electives" (name) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+
+
 CREATE TABLE public."ElectiveSubjects"
 (
     	name VARCHAR(128) NOT NULL,
-	subject_id INTEGER NOT NULL,
-    	CONSTRAINT "ElectivesSubjects_pkey" PRIMARY KEY (name,subject_id),
-	CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_id)
-        REFERENCES public."Subject" (subject_id) MATCH SIMPLE
+	subject_code character varying(16) COLLATE pg_catalog."default" NOT NULL,
+    	CONSTRAINT "ElectivesSubjects_pkey" PRIMARY KEY (name,subject_code),
+	CONSTRAINT "FORN_KEY" FOREIGN KEY (subject_code)
+        REFERENCES public."Subject" (subject_code) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE CASCADE,
 	CONSTRAINT "FORN_KEY2" FOREIGN KEY (name)
@@ -267,6 +266,7 @@ CREATE TABLE public."ElectiveSubjects"
 	
 	
 );
+
 
 
 
