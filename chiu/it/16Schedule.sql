@@ -687,3 +687,23 @@ INSERT INTO public."Schedule" (lec_subject, lab_subject, class_days, time_start,
 (SELECT subject_id FROM public."Subject" WHERE subject_code = 'Acct 1') AND section = 'A23.1'), 
 'Wednesday', '07:30 AM', '10:30 AM' );
 
+INSERT INTO public."Schedule" (lec_subject, lab_subject, class_days, time_start, time_end) VALUES
+( (SELECT id FROM public."LecSubjectsOffered" WHERE subject_id =
+(SELECT subject_id FROM public."Subject" WHERE subject_code = 'CSc 141') AND section = 'CS' ),
+null, 'Monday', '4:30 PM', '6:00 PM' );
+
+INSERT INTO public."Schedule" (lec_subject, lab_subject, class_days, time_start, time_end) VALUES
+( (SELECT id FROM public."LecSubjectsOffered" WHERE subject_id =
+(SELECT subject_id FROM public."Subject" WHERE subject_code = 'CSc 141') AND section = 'CS' ),
+null, 'Thursday', '4:30 PM', '6:00 PM' );
+
+INSERT INTO public."Schedule" (lec_subject, lab_subject, class_days, time_start, time_end) VALUES
+( (SELECT id FROM public."LecSubjectsOffered" WHERE subject_id =
+(SELECT subject_id FROM public."Subject" WHERE subject_code = 'IT 138') AND section = 'IT3MM' ),
+null, 'Tuesday', '07:30 AM', '09:00 AM' );
+
+INSERT INTO public."Schedule" (lec_subject, lab_subject, class_days, time_start, time_end) VALUES
+( (SELECT id FROM public."LecSubjectsOffered" WHERE subject_id =
+(SELECT subject_id FROM public."Subject" WHERE subject_code = 'IT 138') AND section = 'IT3MM' ),
+null, 'Friday', '07:30 AM', '09:00 AM' );
+

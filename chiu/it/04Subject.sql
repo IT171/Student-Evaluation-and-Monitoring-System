@@ -134,3 +134,150 @@ VALUES('IT 169', 'Graph Theory and Applications');
 
 
 COMMIT;
+
+
+
+BEGIN;
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Eng 1', 'Study & Thinking Skills');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('NSTP 1', 'Civic Welfare Training Services 1 or Military Science 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('NSTP 2', 'Civic Welfare Training Services 2 or Military Science 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Math 1', 'Intro to College Math');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Fil 1', 'Study & Thinking Skills');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Socio 1', 'Introduction to Sociology');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Hist 1', 'Philippine History & Institution');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Actg 111', 'Fundamentals of Acctg 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('PE 1', 'Physical Fitness & Health');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Eng 2', 'College English 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Eng 3', 'Speech Communication');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Fil 2', 'Pagbabasa/Pagsusulat sa Ibat Ibang Disiplina');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Nat Sci 1', 'Foundation to Physical Science');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus IT 1', 'IT Fundamentals');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 112', 'Fundamentals of Acctg 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('PE 2', 'Dance Combat');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Econ 1', 'Intro to Economics, Taxation, Land Reform');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Philo 2N', 'Argumentation in Contemporary Society');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Pol Sci 4', 'Politics & Governance');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Hist 3', 'History of Filipino Muslims & Indegenous People of MINSUPALA');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus Math 79', 'Math of Investment');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 121', 'Financial Accounting & Reporting 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('PE 3', 'Individual/Dual Sports');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Eng 4', 'Introduction to Literature');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Math 38', 'Calculus for Business and Economics');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bio 1', 'Basic Biology');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Hum 1', 'Intro to Humanities');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Hist 5', 'Life & Works of Rizal');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 122', 'Financial Accounting & Reporting 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('PE 4', 'Team Sports');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Psych 20', 'Business Psychology');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Stat 32', 'Statistics for Management Science');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Econ 60', 'Microeconomics');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Fin 1', 'Basic Finance');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mktg 11', 'Intro to Marketing');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 123', 'Financial Accounting & Reporting 3');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 131', 'Advanced Accounting 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('BL 1', 'Law on Obligations & Contracts');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus IT 2', 'Management Systems');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus Math 81', 'Quantitative Techniques in Business');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Fin 2', 'Financial Management 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 11', 'Principles of Management');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 141', 'Mgt. Acctg 1 (Cost Accounting)');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Econ 61', 'Macroeconomics');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 12', 'Human Behavior in Organization');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 14', 'Production & Operations Management');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Tax 1', 'Income Taxation');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 132', 'Advanced Accounting 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Actg 142', 'Mgt. Accounting 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('BL 2', 'Law on Business Organization');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Eng 8', 'Technical Report Writing');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus IT 3', 'Information Systems Management');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 18', 'Business Policy & Strategy');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Mgt 19', 'Business Policy & Strategy');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('BL 3', 'Law on Negotiable Instruments');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('BL 4', 'Law on Sales, Agency');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Tax 2', 'Business & Transfer Taxes');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 197', 'On The Job Training');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Hum Elective', 'World Culture or Fine Arts');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Bus IT 4', 'Acctg Information System');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 133', 'Advanced Acctg 3');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 143', 'Management Acctg 3');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 151', 'Auditing 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 160', 'Synthesis');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Fin 3N', 'Financial Management 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 144', 'Mgt Consultancy');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 152', 'Auditing 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 153', 'Auditing in CIS Environment');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 161', 'Special Topics & Acctg Updates 1');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 162', 'Special Topics & Acctg Updates 2');
+INSERT INTO public."Subject" (subject_code, subject_description)
+  VALUES('Acctg 163', 'Special Topics & Acctg Updates 3');
+COMMIT;
