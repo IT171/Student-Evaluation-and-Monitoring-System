@@ -7,21 +7,26 @@ CREATE TABLE public."Account"
     CONSTRAINT "Account_pkey" PRIMARY KEY (username)
 );
 
-CREATE TABLE public."CourseDetail"
-(
-    course_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
-	level character varying(32) COLLATE pg_catalog."default" NOT NULL,
-    abbreviation character varying(16) COLLATE pg_catalog."default",
-    maximum_units smallint,
-	CONSTRAINT "CourseDetail_pkey" PRIMARY KEY (course_name)
-	
-);
-
 CREATE TABLE public."College"
 (
     college_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
     college_abbreviation character varying(16) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "College_pkey" PRIMARY KEY (college_name)
+);
+
+CREATE TABLE public."CourseDetail"
+(
+    course_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
+    level character varying(32) COLLATE pg_catalog."default" NOT NULL,
+    abbreviation character varying(16) COLLATE pg_catalog."default",
+    maximum_units smallint,
+    college_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
+	CONSTRAINT "CourseDetail_pkey" PRIMARY KEY (course_name),
+	CONSTRAINT "FORN_KEY2" FOREIGN KEY (college_name)
+        REFERENCES public."College" (college_name) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+	
 );
 
 
@@ -30,16 +35,13 @@ CREATE TABLE public."Course"
     course_id SERIAL,
     course_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
     major character varying(64) COLLATE pg_catalog."default",
-	college_name character varying(128) COLLATE pg_catalog."default" NOT NULL,
+	
     CONSTRAINT "Course_pkey" PRIMARY KEY (course_id),
 	CONSTRAINT "FORN_KEY" FOREIGN KEY (course_name)
         REFERENCES public."CourseDetail" (course_name) MATCH SIMPLE
         ON UPDATE CASCADE
-        ON DELETE CASCADE,
-	CONSTRAINT "FORN_KEY2" FOREIGN KEY (college_name)
-        REFERENCES public."College" (college_name) MATCH SIMPLE
-        ON UPDATE CASCADE
         ON DELETE CASCADE
+	
 );
 
 CREATE TABLE public."Student"
@@ -80,7 +82,7 @@ CREATE TABLE public."SubjectDetail"
 
 CREATE TABLE public."Subject"
 (
-	subject_id SERIAL,
+    subject_id SERIAL,
     subject_code character varying(16) COLLATE pg_catalog."default" NOT NULL,
     subject_description character varying(64) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "Subject_pkey" PRIMARY KEY (subject_id),
